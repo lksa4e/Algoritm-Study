@@ -4,21 +4,21 @@
 
 ### branch 생성 및 push (git bash)
 
-사전준비 : remote add origin을 통해 등록해두기
+**(사전준비 : remote add origin을 통해 등록해두기)**
 
-- git branch 생성하기
+- **git branch 생성하기**
 
   ```git
   $ git branch <branchName>
   ```
 
-- 생성한 branch로 이동하기
+- **생성한 branch로 이동하기**
 
   ```git
   $ git checkout <branchName>
   ```
 
-- 원격 저장소에 push하기
+- **원격 저장소에 push하기**
 
   ```git
   $ git push -u origin <branchName>
