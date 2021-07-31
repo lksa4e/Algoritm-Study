@@ -4,7 +4,7 @@
 
 ### branch 생성 및 push (git bash)
 
-**(사전준비 : remote add origin을 통해 등록해두기)**
+**사전준비 : remote add origin을 통해 등록해두기**
 
 - **git branch 생성하기**
 
