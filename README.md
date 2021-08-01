@@ -1,4 +1,4 @@
-# Allgorithm-study
+# Algorithm-study
 
 ## Pull Request를 이용한 협업 프로젝트 연습을 합시다!
 
