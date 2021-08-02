@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		
+		int N = Integer.parseInt(st.nextToken());
+		
+		// 회의 시작시간, 끝 시간을 저장할 2차원 배열
+		int[][] timeTable = new int[N][2]; 
+		
+		// 회의 시간표 입력
+		for (int i = 0; i < N; i++) {
+			st = new StringTokenizer(br.readLine());
+			timeTable[i][0] = Integer.parseInt(st.nextToken());
+			timeTable[i][1] = Integer.parseInt(st.nextToken());
+		}
+		
+		// 회의 끝 시간 순서대로 정렬 하되, 같을 경우 시작 시간 오름 차순 정렬
+		Arrays.sort(timeTable,(t1,t2)->{
+			if(t1[1] == t2[1]) // 2번째 원소 같을 떈 
+				return t1[0] - t2[0]; // 첫번째 원소로 오름차순 (내림차순은 반대로 빼기)
+			else 
+				return t1[1] - t2[1];
+		});
+		
+		// 회의 횟수 카운트
+		int prevEnd=0, cnt=0;
+		for(int[] t: timeTable) {
+			if(prevEnd <= t[0]) { // 이전회의 끝 시간 <= 현재회의 시작시간일 경우 
+				prevEnd = t[1]; // 이전회의 끝 시간을 현재회의 끝 시간으로 초기화, 회의 횟수 증가
+				cnt++;
+			}
+		}
+		System.out.println(cnt);
+	}
+}
