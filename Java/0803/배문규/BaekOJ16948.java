@@ -29,8 +29,7 @@ public class BaekOJ16948 {
 		 
 		map[R1][C1] = 0;
 		check[R1][C1] = true;
-		int[] start = {R1, C1};
-		dq.add(start);
+		dq.add(new int[] {R1, C1});
 		
 		while(!dq.isEmpty()) {
 			int[] front = dq.pollFirst();
@@ -44,8 +43,7 @@ public class BaekOJ16948 {
 				
 				check[x][y] = true;
 				map[x][y] = map[front[0]][front[1]] + 1;
-				int[] back = {x,y};
-				dq.add(back);
+				dq.add(new int[] {x, y});
 			}
 		}
 		
