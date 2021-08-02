@@ -1,7 +1,19 @@
-# Algorithm-study
+# SSAFY 6th 6Class Algorithm-study
+---
+## 🤙 Rules
+### ⏰ 시간
+
+**매주 화, 토 20:30 온라인**
+
+### 📝 진행
+
+**코드 리뷰를 위해 모임 전날까지 Github PR!**
+
+**각자 요일에 분담받은 문제 준비해오고 코드 리뷰 꼼꼼히해서 질문하기!**
+
+---
 
 ## Pull Request를 이용한 협업 프로젝트 연습을 합시다!
-
 ### branch 생성 및 push (git bash)
 
 **사전준비 : remote add origin을 통해 등록해두기**
