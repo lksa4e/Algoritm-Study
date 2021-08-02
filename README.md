@@ -1,4 +1,4 @@
-# SSAFY 6th 6Class Algorithm-study
+# SSAFY 6Th-6Class Algorithm Study
 ---
 ## 🤙 Rules
 ### ⏰ 시간
@@ -9,7 +9,7 @@
 
 **코드 리뷰를 위해 모임 전날까지 Github PR!**
 
-**각자 요일에 분담받은 문제 준비해오고 코드 리뷰 꼼꼼히해서 질문하기!**
+**각자 요일에 분담받은 문제 준비해오고, 코드 리뷰 꼼꼼히 해서 질문하기!**
 
 ---
 
