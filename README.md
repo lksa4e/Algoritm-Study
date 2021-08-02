@@ -1,4 +1,4 @@
-# SSAFY 6th 6Class Algorithm-study
+# SSAFY 6Th-6Class Algorithm Study
 ---
 ## 🤙 Rules
 ### ⏰ 시간
