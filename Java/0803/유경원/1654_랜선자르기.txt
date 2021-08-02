@@ -1,0 +1,39 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int K = Integer.parseInt(st.nextToken());
+		int N = Integer.parseInt(st.nextToken());
+		
+		// 랜선 길이 저장할 배열
+		int[] cable = new int[K]; 
+		
+		// right에 랜선 길이 최댓값 저장
+		long left = 1, right = 0, mid, tot;
+		for (int i = 0; i < K; i++) {
+			cable[i] = Integer.parseInt(br.readLine());
+			if(right<cable[i]) right=cable[i];
+		}
+		
+		// 길이 최댓값 이진 검색
+		while(left<=right) {
+			mid = (left+right)/2;
+			
+			tot = 0;
+			for(int c: cable) {
+				tot += c/mid;
+			}
+			
+			if(tot >= N) { // 자른 개수가 필요한 개수 이상이면 길이 증가
+				left = mid + 1;
+			}else {
+				right = mid - 1;
+			}
+		}
+		System.out.println(right);
+	}
+}
