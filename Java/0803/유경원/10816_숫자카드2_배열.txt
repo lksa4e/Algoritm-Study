@@ -1,0 +1,35 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	
+	
+	public static void main(String[] args) throws IOException {
+		// 입력
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		
+		int n = Integer.parseInt(st.nextToken());
+		int[] arr = new int[20000001];
+		
+		st = new StringTokenizer(br.readLine());
+		String s = "";
+		// 배열에 숫자, 개수 업데이트
+		for(int i=0; i<n; i++) {
+			arr[Integer.parseInt(st.nextToken())+10000000]++;
+		}
+		
+		st = new StringTokenizer(br.readLine());
+		int m = Integer.parseInt(st.nextToken());
+		st = new StringTokenizer(br.readLine());
+		
+		// 출력
+		for(int i=0; i<m; i++) {
+			bw.write(arr[Integer.parseInt(st.nextToken())+10000000]+" ");
+		}
+		bw.close();
+		
+	}
+
+}
