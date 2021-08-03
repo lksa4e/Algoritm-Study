@@ -48,5 +48,5 @@
 ---
 
 ## 참고자료
-- [언어별 력 속도 비교](https://www.acmicpc.net/blog/view/56)
+- [언어별 입력 속도 비교](https://www.acmicpc.net/blog/view/56)
 - [언어별 출력 속도 비교](https://www.acmicpc.net/blog/view/57)
