@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		
+		// <알파벳, 자릿수> 맵 저장
+		HashMap<Character, Integer> word = new HashMap<Character, Integer>();
+		// 단어 입력
+		char[][] input = new char[N][];
+		
+		for(int i=0; i<N; i++) {
+			input[i] = sc.next().toCharArray();
+			// 각 알파벳 자릿수 저장
+			for(int j=0, size = input[i].length; j<size; j++) {
+				Integer num = word.get(input[i][j]);
+				int t = (int) Math.pow(10, size-1-j); // 자릿수 1000, 100, 10,...
+				if(num!=null) {
+					word.put(input[i][j], num+t); // 이미 있는 알파벳이면 자릿수 더함
+				}else {
+					word.put(input[i][j], t);
+				}
+			}
+		}
+		
+		// 밸류(해당 알파벳 자릿수 총합) 순으로 내림차순 정렬
+		List<Integer> list = new ArrayList<>(word.values());
+		Collections.sort(list, (e1,e2)-> {return e2-e1;});
+		
+		// 9*10000 + 8*1010 + ...
+		int ans = 0, k = 9;
+		for(int i=0; i<list.size(); i++) {
+			ans += list.get(i)*k--;
+		}
+		System.out.println(ans);
+	}
+}
