@@ -1,0 +1,56 @@
+import java.util.*;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		
+		int r1 = sc.nextInt(); int c1 = sc.nextInt();
+		int r2 = sc.nextInt(); int c2 = sc.nextInt();
+		
+		System.out.println(bfs(N, r1, c1, r2, c2));
+	}
+	
+	static int bfs(int N, int r1, int c1, int r2, int c2) {
+		Queue<Pair> q = new LinkedList<Pair>();
+		q.offer(new Pair(r1,c1,0));
+		
+		boolean[][] visited = new boolean[N][N];
+		int[] dx = {-2,-2,0,0,2,2};
+		int[] dy = {-1,1,-2,2,-1,1};
+		int x, y, nx, ny, cnt;
+		
+		while(!q.isEmpty()) {
+			Pair now = q.poll();
+			x = now.x;
+			y = now.y;
+			cnt = now.cnt;
+			
+			if(x==r2&&y==c2) {
+				return cnt;
+			}
+			for(int i=0; i<6; i++) {
+				nx = x+dx[i];
+				ny = y+dy[i];
+				
+				if(nx<0||nx>=N||ny<0||ny>=N) continue;
+				
+				if(!visited[nx][ny]) {
+					visited[nx][ny] = true;
+					q.offer(new Pair(nx,ny,cnt+1));
+				}
+			}
+		}
+		return -1;
+	}
+}
+
+class Pair{
+	int x, y, cnt;
+	public Pair(int x, int y, int cnt) {
+		this.x = x;
+		this.y = y;
+		this.cnt = cnt;
+	}
+}
