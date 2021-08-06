@@ -36,7 +36,8 @@ public class BaekOJ11650 {
 			}
 		});
 		
-		for(int[] i : list) System.out.println(i[0]+" "+i[1]);
+		for (int[] point : list) sb.append(point[0]).append(" ").append(point[1]).append("\n");
+        	System.out.println(sb.toString());
 	}
 
 }
