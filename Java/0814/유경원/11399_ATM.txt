@@ -1,0 +1,27 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	/**
+	 * 소요시간이 짧은 사람부터 인출할 때가 최솟값
+	 * @param N 사람의 수, M 배열 B의 크기
+	 * @param time 각 사람당 인출 소요 시간을 담을 배열
+	 */
+	static int N;
+	static int[] time;
+	
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	public static void main(String[] args) throws Exception{
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		N = Integer.parseInt(st.nextToken());
+		st = new StringTokenizer(br.readLine());
+	    time = new int[N];
+		for(int i=0;i<N;i++) time[i] = Integer.parseInt(st.nextToken());
+		
+		Arrays.sort(time);
+		int sum = 0;
+		// 첫번째사람은 N번, 두번째사람은 N-1번, ... 더해진다
+		for(int i=0;i<N;i++) sum += time[i]*(N-i);
+		System.out.println(sum);
+	}
+}

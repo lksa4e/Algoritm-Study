@@ -1,0 +1,43 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	/**
+	 * 가입한 순서대로 입력되므로 나이로만 오름차순 정렬한다
+	 * Arrays.sort의 인자로 객체가 올 경우 MergeSort or TimSort 인데 둘다 stable sort이므로,
+	 * 동일한 값의 순서가 정렬 전, 후 로 변경 되지 않는다. 따라서 입력 순(가입 순) 보장됨
+	 * @param N 회원의 수
+	 * @param people 각 회원의 나이와 이름으로 구성된 객체를 담을 배열
+	 */
+	static int N;
+	static People[] people;
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static StringBuilder sb = new StringBuilder();
+	
+	public static void main(String[] args) throws Exception{
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		N = Integer.parseInt(st.nextToken());
+		people = new People[N];
+		for(int i=0;i<N;i++) {
+			String[] input = br.readLine().split(" ");
+			people[i] = new People(Integer.parseInt(input[0]), input[1]);
+		}
+		
+		Arrays.sort(people);
+		for(People p:people) sb.append(p.age).append(" ").append(p.name).append("\n");
+		System.out.println(sb.toString());
+	}
+}
+
+class People implements Comparable<People>{
+	int age;
+	String name;
+	People(int age, String name){
+		this.age = age;
+		this.name = name;
+	}
+	@Override
+	public int compareTo(People p) {
+		return age - p.age;
+	}
+}
