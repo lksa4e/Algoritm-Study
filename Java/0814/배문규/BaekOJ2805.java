@@ -11,7 +11,7 @@ import java.util.*;
  * 	입력을 받기 위해 선언하는 타입에 따른 메모리와 시간 차이
  * 	int[]			메모리 119140	시간 544
  *	Integer[]		메모리 134956	시간 716
- *	List<Integer>	메모리 145320	시간 824
+ *	List<Integer>		메모리 145320	시간 824
  *  당연하겠지만 primitive type이 성능이 좋다. (https://siyoon210.tistory.com/139)
  */
 
