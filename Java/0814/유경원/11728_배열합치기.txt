@@ -1,0 +1,34 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	/**
+	 * A,B 배열 크기를 합친 배열에 수를 다 담아서 정렬한다
+	 * @param N 배열 A의 크기, M 배열 B의 크기
+	 * @param arr 합친 배열;
+	 */
+	static int N, M;
+	static int[] arr;
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static StringBuilder sb = new StringBuilder();
+	
+	public static void main(String[] args) throws Exception{
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+		
+		arr = new int[N+M];
+		
+		st = new StringTokenizer(br.readLine());
+		for(int i=0;i<N;i++) arr[i] = Integer.parseInt(st.nextToken());
+		
+		st = new StringTokenizer(br.readLine());
+		for(int i=N;i<N+M;i++) arr[i] = Integer.parseInt(st.nextToken());
+		
+		Arrays.sort(arr);
+		
+		for(int a:arr) sb.append(a).append(" ");
+		
+		System.out.println(sb.toString());
+	}
+}
