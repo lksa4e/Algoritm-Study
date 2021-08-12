@@ -1,13 +1,10 @@
 /**
-문제 링크 : https://www.acmicpc.net/problem/11728
-뻘짓리스트 
-              풀이방법                                                                                                                        | 메모리      | 시간
-N+M size Array, N+M 사이즈 한번에 sort                                 | 313988 | 1832
-N+M size Array, While문 Merge sort, for문 나머지처리(한쪽 다 담고 남은거 몰아서) | 314992 | 1836
-String Array, While문 Merge sort, for문 나머지 처리(st.nextToken제거)     | 417372 | 1636 
-Priority Queue 사용, 전부 뽑아서 출력                                                                                | 346256 | 2460
-N+M size Array, for문을 통한 merge sort (조건문 개수 줄이기)                | 302380 | 1568
-
+	문제 링크 : https://www.acmicpc.net/problem/14888
+	모든 연산자 경우의 수를 파악해야 하므로 순열 or 조합 풀이
+	동일 연산자는 순서가 바뀌는 것이 의미 없으므로 조합으로 풀어야 함
+	수업시간에 배운 next_permutation을 이용한 풀이
+	숫자를 이용한 next_permutation 활용을 위해 + : 0, - : 1, * : 2, / : 3 으로 매팽하여 사용
+	ex) [0,0,1,1,2,2,3] 의 경우  + + - - * * / 순서의 연산자
 */
 import java.io.BufferedReader;
 import java.io.FileInputStream;
