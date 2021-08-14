@@ -33,9 +33,9 @@ public class BaekOJ9019 {
 			A = Integer.parseInt(st.nextToken());
 			B = Integer.parseInt(st.nextToken());
 			
-			//sb를 null -> "" 로 초기화
+			//null -> "" 로 초기화
 			result[A] = "";
-            queue.offer(A);
+            		queue.offer(A);
 			while(result[B] == null && !queue.isEmpty()) {
 				// dequeue한 값으로 DSLR 값들을 모두 구함
 				int front = queue.poll();
