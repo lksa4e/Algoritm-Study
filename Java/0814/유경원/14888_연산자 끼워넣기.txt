@@ -1,0 +1,49 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	/**
+	 * 각 연산자 종류를 매개변수로 하여 dfs
+	 * depth 들어갈때 결과값을 계산해서 태움
+	 * 끝까지 들어갔으면(연산자 다 썼으면) 최대, 최소값 구하기
+	 * 
+	 * N 수의 개수, maxRes, minRes 식 결과의 최댓값, 최솟값
+	 * arr 수열 oper 연산자
+	 */
+	static int N, maxRes=Integer.MIN_VALUE, minRes=Integer.MAX_VALUE;
+	static int[] arr, oper;
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	public static void main(String[] args) throws Exception {
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		N = Integer.parseInt(st.nextToken());
+		arr = new int[N];
+		st = new StringTokenizer(br.readLine());
+		for(int i=0; i<N; i++) arr[i] = Integer.parseInt(st.nextToken());
+		
+		oper = new int[4];
+		st = new StringTokenizer(br.readLine());
+		for(int i=0; i<4; i++) oper[i] = Integer.parseInt(st.nextToken());
+		
+		dfs(oper[0],oper[1],oper[2],oper[3],1,arr[0]);
+		
+		System.out.println(maxRes);
+		System.out.println(minRes);
+	}
+	
+	// p 더하기 s 빼기 m 곱하기 d 나누기 depth 깊이 res 연산 결과값
+	static void dfs(int p, int s, int m, int d, int depth, int res) {
+		if(depth==N) {
+			if(maxRes<res) maxRes = res;
+			if(minRes>res) minRes = res;
+			return;
+		}
+		// 더하기 있으면, 더하기 개수 하나 빼고, 깊이 증가, 결과값에 더하기
+		if(p>0) dfs(p-1, s, m, d, depth+1, res+arr[depth]);
+		
+		if(s>0) dfs(p, s-1, m, d, depth+1, res-arr[depth]);
+		
+		if(m>0) dfs(p, s, m-1, d, depth+1, res*arr[depth]);
+		
+		if(d>0) dfs(p, s, m, d-1, depth+1, res/arr[depth]);
+	}
+}
