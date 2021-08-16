@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 
 /*
  *  i는 1부터 N까지 그리고
- *  j는 j부터 i*j <= N까지 조건으로
+ *  j는 i부터 i*j <= N까지 조건이면 N개로 직사각형의 모든 조합을 찾을 수 있음
  *  cnt++
  *  
  *  메모리		시간
