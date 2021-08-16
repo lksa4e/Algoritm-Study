@@ -5,16 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-//class Point{
-//	int x;
-//	int y;
-//	
-//	Point(int x, int y){
-//		this.x = x;
-//		this.y = y;
-//	}
-//}
-
 /*
  * 이전 색종이 문제 처럼 마킹을 하고
  * 둘레를 구하는 방법을 생각을 해봤는데, 이전 포인트 white -> 현재 포인트 black이면 해당 부분이 변이라고 생각하고
@@ -23,6 +13,16 @@ import java.util.StringTokenizer;
  * 메모리		시간
  * 14152	136  
  */
+
+class Point{
+	int x;
+	int y;
+	
+	Point(int x, int y){
+		this.x = x;
+		this.y = y;
+	}
+}
 
 public class BaekOJ2567_배문규 {
 
