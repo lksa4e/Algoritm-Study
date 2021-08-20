@@ -1,0 +1,47 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	/* 
+	 * 절단기 높이 범위를 보니 이진탐색 각
+	 * N 나무 수 M 잘라가야할 나무 길이 maxTree 가장 긴 나무길이 ans 절단기 높이 최댓값
+	 * tree 나무 길이 배열
+	 */
+	static int N, M, maxTree=-1, ans;
+	static int[] tree;
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	
+	public static void main(String[] args) throws Exception {
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+		tree = new int[N];
+		
+		st = new StringTokenizer(br.readLine());
+		for(int i=0; i<N; i++) {
+			tree[i] = Integer.parseInt(st.nextToken());
+			if(maxTree<tree[i]) maxTree = tree[i];
+		}
+		
+		binarySearch();
+		System.out.println(ans);
+	}
+	
+	private static void binarySearch() {
+		int l = 0, r = maxTree, mid = 0;
+		
+		while(l<=r) {
+			mid = (l+r)/2;
+			
+			long cutTree = 0; // 자른 나무길이 합 (나무높이가 최대 10억이길래 long으로 선언)
+			for(int t: tree) 
+				if(t>mid) cutTree += t-mid;
+			
+			if(cutTree>=M) { // 자른 나무길이 합이 목표치 이상이면 절단기 높이 증가
+				ans = mid;
+				l = mid+1;
+			}
+			else r = mid-1;
+		}
+	}
+}

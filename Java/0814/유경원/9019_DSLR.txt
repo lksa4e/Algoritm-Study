@@ -1,0 +1,74 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	/*
+	 * 시간초과, 메모리초과, 런타임에러, 틀렸습니다. 다 받아본 문제..
+	 * 특히 메모리초과는 처음 받아 보는데 첨에 방문처리안하고 제출했더니 뜸..
+	 * 도움됐던 반례들 
+	 * 1
+	 * 9999 0
+	 * DDLSLDDRDDDD
+	 * 
+	 * 1
+	 * 0 1000
+	 * SDDLDSLDRDDD
+	 * 
+	 * T 테케 수 A 초기 값 B 최종 값
+	 * visited 방문처리
+	 */
+	static int T, A, B;
+	static boolean[] visited;
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static StringBuilder sb = new StringBuilder();
+	
+	public static void main(String[] args) throws Exception {
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int T = Integer.parseInt(st.nextToken());
+		while(T-->0) {
+			st = new StringTokenizer(br.readLine());
+			A = Integer.parseInt(st.nextToken());
+			B = Integer.parseInt(st.nextToken());
+			
+			// (값, 명령어)를 저장
+			Queue<Pair> q = new LinkedList<>();
+			visited = new boolean[10000];
+			q.offer(new Pair(A,""));
+			while(!q.isEmpty()) {
+				Pair temp = q.poll();
+				int n = temp.n;
+				String res = temp.res;
+				
+				if(n==B) {
+					sb.append(res).append("\n");
+					break;
+				}
+				
+				int D = (n*2)%10000;
+				int S = (n+9999)%10000;
+				int L = n%1000*10+n/1000;
+				int R = n%10*1000+n/10;
+				
+				int[] val = {D,S,L,R};
+				String[] cmd = {"D","S","L","R"};
+				// 명령어 붙여서 큐에 넣기
+				for(int i=0; i<4; i++) {
+					if(!visited[val[i]]) {
+						visited[val[i]] = true;
+						q.offer(new Pair (val[i],res+cmd[i]));
+					}
+				}
+			}
+		}
+		System.out.println(sb);
+	}
+}
+class Pair{
+	int n; String res;
+
+	public Pair(int n, String res) {
+		this.n = n;
+		this.res = res;
+	}
+	
+}
