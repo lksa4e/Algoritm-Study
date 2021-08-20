@@ -3,6 +3,7 @@ import java.util.*;
 /**
  * BOJ 10825 국영수 : https://www.acmicpc.net/problem/10825
  * Comparable or Comparator 문제.. 해설 불필요해보임
+ * 메모리 : 65056KB, 시간 : 948ms
  * 
  */
 

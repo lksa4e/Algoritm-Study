@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.*;
 /**
  * BOJ 1080 행렬 : https://www.acmicpc.net/problem/1080
+ * 메모리 : 14304KB , 시간 : 144ms
  * 
  * 전체 배열을 탐색하여, A B가 다를때 3*3 만큼 바꿔준다.
  * 좌표 상에서, 왼쪽 위부터 탐색하면서 오른쪽 아래 방향으로 바꾸어주므로, 앞쪽을 다시 살필 필요가 없다.
