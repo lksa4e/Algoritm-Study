@@ -3,7 +3,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
-
+/**
+ * 알파벳 등장 횟수, 자리수에 따른 비중 구하기
+ * 비중에 따라 9 8 7 6,,, 숫자 지정
+ * 등장 숫자에 따라 정답 계산
+ */
 public class P1339 {
 	static int N, answer = 0;
 	static String[] s;
