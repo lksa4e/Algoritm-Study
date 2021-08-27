@@ -44,11 +44,11 @@ public class BaekOJ2110_배문규 {
 	}
 	
 	public static int p_search(int start, int end) {
-		if(start > end) return end;
+		if(start > end) return end; // 최대 거리로 수렴하면 종료
 	
 		int pivot = (start+end)/2;
 		
-		// pivot으로 문제가 해결 가능한지. yes -> 거리를 더 늘려봄. no -> 거기를 더 줄여봄 
+		// pivot으로 문제가 해결 가능한지. yes -> 거리를 더 늘려봄. no -> 거리를 더 줄여봄 
 		if(isPossible(pivot)) return p_search(pivot+1, end);
 		else return p_search(start, pivot-1); 
 	}
