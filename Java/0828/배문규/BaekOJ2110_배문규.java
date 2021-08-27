@@ -48,12 +48,12 @@ public class BaekOJ2110_배문규 {
 	
 		int pivot = (start+end)/2;
 		
-		// pivot거리 만큼 라우터를 설치했을 때, C개보다 많거나 같으면 거리를 늘림(개수가 같을 때 늘리면 최대거리로 수렴) - 적으면 거리를 줄임
-		if(set_router(pivot) >= C) return p_search(pivot+1, end);
+		// pivot으로 문제가 해결 가능한지. yes -> 거리를 더 늘려봄. no -> 거기를 더 줄여봄 
+		if(isPossible(pivot)) return p_search(pivot+1, end);
 		else return p_search(start, pivot-1); 
 	}
 	
-	public static int set_router(int distance) {
+	public static boolean isPossible(int distance) {
 		
 		int cnt = 1; // 공유기 설치 개수
 		int curr = router[0]; // 공유기 설치 지점 = 시작점으로 초기화
@@ -66,7 +66,8 @@ public class BaekOJ2110_배문규 {
 			}
 		}
 		
-		// 공유기 설치 개수 리턴
-		return cnt;
+		// C개 이상 공유기를 설치가 가능한지
+		if(cnt >= C) return true;
+		else return false;
 	}
 }
