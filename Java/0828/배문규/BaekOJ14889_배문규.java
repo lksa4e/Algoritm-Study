@@ -12,6 +12,7 @@ import java.util.StringTokenizer;
  * 만약 {0,1,2,3} 중에서 start팀이 0,1 로 구성이 된다고 하자.
  * 여기서 map에서 R[0]과C[0],R[1]과C[1]을 빼주면 start팀인 map[0][1]과 map[1][0]은 음수가 되고, link팀인 map[2][3]과 map[3][2]는 양수가 된다.
  * 그리고 나머지는 다 0이기 때문에 결국 전체 -(start팀 인덱스 행, 열의 합) = start팀과 link팀의 전력의 차가 된다.
+ * 해당 조합의 능력의 합을 구하는 추가 반복연산이 필요하지 않음
  * 
  * 메모리 	시간
  * 14456	152
@@ -46,7 +47,7 @@ public class BaekOJ14889_배문규 {
 	
 	// idx = start팀 선택 인덱스, cnt = N/2까지 도달하면 팀 구성, gap = cnt가 N/2가 되면 양팀의 전력의 차
 	// gap에서 n/2번 R과 C의 idx 값들을 빼면 start팀(음수) + link팀(양수) 전력의 차가 됨
-	// 루트를 제외하고 depth가 n/2인 dfs로 조합 구성 
+	// 루트를 제외하고 depth가 n/2인 dfs로 조합 구성
 	public static void makeTeam(int idx, int cnt, int gap) {
 		// 팀이 만들어 지면 전력의 최솟값 찾고 해당 조합 종료
 		if(cnt == N/2) {
