@@ -46,6 +46,7 @@ public class BaekOJ14889_배문규 {
 	
 	// idx = start팀 선택 인덱스, cnt = N/2까지 도달하면 팀 구성, gap = cnt가 N/2가 되면 양팀의 전력의 차
 	// gap에서 n/2번 R과 C의 idx 값들을 빼면 start팀(음수) + link팀(양수) 전력의 차가 됨
+	// 루트를 제외하고 depth가 n/2인 dfs로 조합 구성 
 	public static void makeTeam(int idx, int cnt, int gap) {
 		// 팀이 만들어 지면 전력의 최솟값 찾고 해당 조합 종료
 		if(cnt == N/2) {
