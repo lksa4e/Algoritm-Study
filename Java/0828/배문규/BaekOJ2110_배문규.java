@@ -55,11 +55,11 @@ public class BaekOJ2110_배문규 {
 	
 	public static boolean isPossible(int distance) {
 		
-		int cnt = 1; // 공유기 설치 개수
+		int cnt = 1; // 공유기 설치 개수; 일단 첫집에 설치
 		int curr = router[0]; // 공유기 설치 지점 = 시작점으로 초기화
 		
 		for(int i = 1; i < N; i++) {
-			if(curr+distance <= router[i]) { // 현재 공유기 설치 지점좌표  + 거리 <= i번 째 공유기 좌표 
+			if(curr+distance <= router[i]) { // 현재 공유기 설치 지점좌표 + 거리 <= i번 째 집 좌표
 				// 공유기 설치 후 현재 공유기 설치 지점 갱신
 				cnt += 1;
 				curr = router[i];
