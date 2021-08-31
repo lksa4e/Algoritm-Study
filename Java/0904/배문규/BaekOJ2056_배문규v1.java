@@ -31,10 +31,6 @@ class Work{
 	Work(int num){
 		this.num = num;
 	}
-	
-	public boolean hasIn() {
-		return in.size() != 0 ? true : false;
-	}
 }
 
 public class BaekOJ2056_배문규v1 {
@@ -79,7 +75,7 @@ public class BaekOJ2056_배문규v1 {
 			for(int in : work.out) {
 				dp[in] = dp[in] < works[in].time + dp[work.num] ? works[in].time + dp[work.num] : dp[in];
 				works[in].in.remove(works[in].in.indexOf(work.num));
-				if(!works[in].hasIn()) queue.offer(works[in]); 
+				if(works[in].in.isEmpty()) queue.offer(works[in]); 
 			}
 		}
 		
