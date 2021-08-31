@@ -14,8 +14,8 @@ import java.util.*;
 class Work{
 	int num;
 	int time;
-	int enterCnt;
-	Queue<Work> link = new ArrayDeque<Work>(); // 해당 vertex로 진입하는 vertex
+	int enterCnt; // 해당 vertex로 진입하는 vertex 수
+	Queue<Work> link = new ArrayDeque<Work>(); // 해당 vertex가 진출하는 vertex
 	
 	Work(int num){
 		this.num = num;
