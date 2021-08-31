@@ -7,8 +7,8 @@ import java.util.*;
  * 진입, 진출을 따로 관리하지 않고 link를 두어서 진출 => 진입 방향으로 링크를 해주었음
  * 해당 vertex에 link는 진출에 대한 정보라 따로 enterCnt라는 해당  vertex로 진입하는 vertex의 수를 따로 관리함
  * 
- * 메모리 	시간
- * 71428	844
+ * 메모리 		시간
+ * 72128	752
  */
 
 class Work{
@@ -62,8 +62,8 @@ public class BaekOJ2056_배문규v2 {
 		while(!queue.isEmpty()) {
 			Work work = queue.poll();
 			// 해당 vertex가 진출하는 vertex를 뽑아서 dp값 비교 후 갱신
-			for(Work next = work.link.peek(); !work.link.isEmpty();) {
-				next = work.link.poll();
+			while(!work.link.isEmpty()){
+				Work next = work.link.poll();
 				dp[next.num] = dp[next.num] < works[next.num].time + dp[work.num] ? works[next.num].time + dp[work.num] : dp[next.num];
 				if(--next.enterCnt == 0) queue.offer(next); // 더 이상 진입하는 vertex가 없으면 enqueue
 			}
