@@ -63,7 +63,6 @@ public class BaekOJ1197_배문규_Kruskal {
 		parents = new int[V+1];
 		for(int i = 0; i < V; i++) parents[i] = i;
 
-		// 크루스칼에서는 정렬이 필수
 		Arrays.sort(edges);
 		
 		System.out.println(getResult());
