@@ -110,7 +110,7 @@ public class BaekOJ11780_배문규 {
 		// 경유한 곳이 없으면 빈 sb 리턴
 		if(via[i][j] == 0) return new StringBuilder();
 		
-		// 마지막으로 경유 한 곳
+		// 
 		int k = via[i][j];
 		// i에서 k로 갔던 최적경로 + k + k에서 j로 갔던 최적경로를 재귀로 추적 
 		return find_Via(i, k).append(" ").append(k).append(" ").append(find_Via(k, j));
