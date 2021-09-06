@@ -33,7 +33,7 @@ public class BaekOJ11780_배문규 {
 		V = Integer.parseInt(br.readLine());
 		E = Integer.parseInt(br.readLine());
 		bus = new int[V+1][V+1]; 
-		via = new int[V+1][V+1]; // 마지막 경유지 저장 배열
+		via = new int[V+1][V+1];
 		
 		// 맵 입력
 		setMap();
