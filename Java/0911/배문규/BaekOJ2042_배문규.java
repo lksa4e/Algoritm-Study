@@ -87,7 +87,7 @@ public class BaekOJ2042_배문규 {
 	// option 2, 구간합 구하기.
 	static long prefix_Sum(int treeStart, int treeEnd, int queryStart, long queryEnd, int root) {
 		if(treeStart > queryEnd || treeEnd < queryStart) return 0; // 찾으려는 구간 완전 밖
-		if(queryStart <= treeStart && queryEnd >= treeEnd) return sTree[root]; // 찾으려는 구간 완전 포함
+		if(queryStart <= treeStart && queryEnd >= treeEnd) return sTree[root]; // 세그먼트 트리 범위가 찾으려는 구간 완전 포함
 
 		int mid = (treeStart+treeEnd)/2; // 트리 중앙 분할
 		return prefix_Sum(treeStart, mid, queryStart, queryEnd, 2*root) // 좌 우 분할정복
