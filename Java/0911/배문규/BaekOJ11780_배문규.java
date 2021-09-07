@@ -45,7 +45,7 @@ public class BaekOJ11780_배문규 {
 				for(int j = 1; j <= V; j++) {
 					if(bus[i][j] > bus[i][k] + bus[k][j]) {
 						bus[i][j] = bus[i][k] + bus[k][j]; // i에서  j로 갈 때, k를 경유해서 가는게 더 빠르면 갱신 
-						via[i][j] = k; // i에서 k까지 가는 최적 경로 + k에서 j로 가는 최적경로의, 최적의 k 저장
+						via[i][j] = k; // i에서 k까지 가는 최적 경로 + k에서 j로 가는 최적경로의, k 저장
 					}
 				}
 			}
@@ -110,7 +110,7 @@ public class BaekOJ11780_배문규 {
 		// 경유한 곳이 없으면 빈 sb 리턴
 		if(via[i][j] == 0) return new StringBuilder();
 		
-		// 
+		// 최적 경유지
 		int k = via[i][j];
 		// i에서 k로 갔던 최적경로 + k + k에서 j로 갔던 최적경로를 재귀로 추적 
 		return find_Via(i, k).append(" ").append(k).append(" ").append(find_Via(k, j));
