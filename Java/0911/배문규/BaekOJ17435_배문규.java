@@ -57,13 +57,13 @@ public class BaekOJ17435_배문규 {
 			
 			// n을 2진수로 변환하였을 때, 비트가 1인 녀석들만 골라서 희소 테이블을 점프 
 			for (int j = log; j >= 0; j--) {
-                int sub = (int) Math.pow(2, j);
-                if (n >= sub) {
-                    n -= sub;
-                    x = func[j][x];
-                    if(n == 0) break;
-                }
-            }
+				int sub = (int) Math.pow(2, j);
+				if (n >= sub) {
+				    n -= sub;
+				    x = func[j][x];
+				    if(n == 0) break;
+				}
+			}
 			
 			sb.append(x).append("\n");
 		}
