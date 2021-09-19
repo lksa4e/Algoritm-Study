@@ -13,7 +13,7 @@ package BaekOJ.study.date0921;
  * for(int div = i; div < j; div++) {
  *	dp[i][j] = Math.min(dp[i][j], dp[i][div] + dp[div+1][j]) + weight[i][j];;
  * }
- * -> 여기서 weight는 i에서 j까지 데이터의 합인 구간합배열 sum[j+1]-sum[i]이라고 할 수 있다.
+ * -> 여기서 weight는 i에서 j까지 데이터의 합인 구간합배열 _sum[j+1]-_sum[i]이라고 할 수 있다.
  * 
  * i부터 j까지의 최솟값을 div로 구간을 나눠서 각 소구간의 합으로 도출하는 딱 지금과 같은 점화식에서 
  * knuth 최적화가 가능하다. 대표적인 DP유형이다보니 파일 합치기 말고도 스토리만 바꾼 비슷한 문제가 혹시 코테에서 나올 수도 있으니 
