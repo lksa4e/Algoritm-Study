@@ -45,7 +45,7 @@ package BaekOJ.study.date0921;
  * 
  * 이는 종합적으로 봤을 때, '상수'번 반복한다고 봐도 무방하기 때문에 O(N^3)을 O(N^2)로 만들어주는 효과가 있다.
  * 
- * 메모리 	시간
+ * 메모리		시간
  * 34312	352
  */
 
@@ -111,7 +111,7 @@ public class BaekOJ11066_배문규_Knuth {
 					}
 				}
 			}
-			sb.append(dp[0][K - 1]).append("\n");
+			sb.append(dp[0][K-1]).append("\n");
 		}
 		System.out.println(sb);
 	}
