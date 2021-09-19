@@ -16,7 +16,7 @@ import java.util.*;
  * 1 + 2 * 3 => 1 + (2 * 3)
  * 
  * 메모리 	시간
- * 
+ * 14204  128
  */
 public class BaekOJ16637_배문규 {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
