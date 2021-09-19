@@ -17,7 +17,7 @@ public class BaekOJ11066_배문규 {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringBuilder sb = new StringBuilder();
 	static StringTokenizer st = null;
-	static int T, K, file[], sum[], dp[][];
+	static int T, K, file[], _sum[], dp[][];
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		T = Integer.parseInt(br.readLine());
@@ -30,8 +30,8 @@ public class BaekOJ11066_배문규 {
 			
 			// 1부터 K까지 각 구간의 총합, i부터 j까지 단순한 합을 빠르게 구하기 위해서 
 			// 이 배열이 DP점화식을 세울 수 있게 만드는 핵심 
-			sum = new int[K+1];
-			for(int i = 0; i < K; i++) sum[i+1] = sum[i]+file[i];
+			_sum = new int[K+1];
+			for(int i = 0; i < K; i++) _sum[i+1] = _sum[i]+file[i];
 			
 			dp = new int[K][K];
 			
@@ -61,7 +61,7 @@ public class BaekOJ11066_배문규 {
 					dp[i][j] = Integer.MAX_VALUE; //항상 최대값으로 초기화 한 뒤 최소합을 찾
 					for(int div = i; div < j; div++) { // 미리 구해놓은 구간들로 범위를 분할  
 						// 1 / 2 3 4 ,   1 2 / 3 4,   1 2 3 / 4 로 탐색 
-						dp[i][j] = Math.min(dp[i][j], (dp[i][div]+dp[div+1][j]) + (sum[j+1]-sum[i]));
+						dp[i][j] = Math.min(dp[i][j], (dp[i][div]+dp[div+1][j]) + (_sum[j+1]-_sum[i]));
 					}
 				}
 			}
