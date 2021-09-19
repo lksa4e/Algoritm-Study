@@ -56,7 +56,7 @@ public class BaekOJ11066_배문규_Knuth {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringBuilder sb = new StringBuilder();
 	static StringTokenizer st = null;
-	static int T, K, file[], sum[], dp[][], knuth[][];
+	static int T, K, file[], _sum[], dp[][], knuth[][];
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		T = Integer.parseInt(br.readLine());
@@ -67,8 +67,8 @@ public class BaekOJ11066_배문규_Knuth {
 			st = new StringTokenizer(br.readLine());
 			for(int i = 0; i < K; i++) file[i] = Integer.parseInt(st.nextToken());
 			
-			sum = new int[K+1];
-			for(int i = 0; i < K; i++) sum[i+1] = sum[i]+file[i];
+			_sum = new int[K+1];
+			for(int i = 0; i < K; i++) _sum[i+1] = _sum[i]+file[i];
 			
 			// 크누스 최적화 배열 
 			knuth = new int[K][K];
@@ -104,8 +104,8 @@ public class BaekOJ11066_배문규_Knuth {
 					 * 크누스라는 분께서 엄청나게 복잡하게 증명을 해주셨다...
 					 */
 					for(int div = knuth[i][j-1]; div <= knuth[i+1][j]; div++) {
-						if(div < K-1 && dp[i][j] > (dp[i][div] + dp[div+1][j]) + (sum[j+1]-sum[i])) {
-							dp[i][j] = (dp[i][div] + dp[div+1][j]) + (sum[j+1]-sum[i]);
+						if(div < K-1 && dp[i][j] > (dp[i][div] + dp[div+1][j]) + (_sum[j+1]-_sum[i])) {
+							dp[i][j] = (dp[i][div] + dp[div+1][j]) + (_sum[j+1]-_sum[i]);
 							knuth[i][j] = div; // 최소값 분할 지점 저장 
 						}
 					}
