@@ -43,7 +43,7 @@ package BaekOJ.study.date0921;
  * for(int div = i; div < j; div++)을 
  * for(int div = knuth[i][j-1]; div <= knuth[i+1][j]; div++)로 바꿔줄 수 있다.
  * 
- * 이는 '상수'번 반복하므로 O(N^3)을 O(N^2)로 만들어주는 효과가 있다.
+ * 이는 종합적으로 봤을 때, '상수'번 반복한다고 봐도 무방하기 때문에 O(N^3)을 O(N^2)로 만들어주는 효과가 있다.
  * 
  * 메모리 	시간
  * 34312	352
