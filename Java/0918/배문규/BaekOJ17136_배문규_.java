@@ -39,13 +39,13 @@ public class BaekOJ17136_배문규 {
 	}
 	
 	public static void dfs(int startI, int startJ) {
-		// 행 끝 도달 
+		// 행 끝 도달 (가 아니라 가로 끝 도달)
 		if(startJ == 10) {
 			dfs(startI+1, 0);
 			return;
 		}
 		// 열 끝 도달 == 종료 
-		// 최솟값 찾기 
+		// 최솟값 찾기 (가 아니라 로 끝 도달)
 		if(startI == 10) {
 			result = result < cnt ? result : cnt;
 			return;
