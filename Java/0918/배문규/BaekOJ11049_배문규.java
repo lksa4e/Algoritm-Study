@@ -82,7 +82,7 @@ public class BaekOJ11049_배문규 {
 					// 
 					//       행렬 곱셈은 weight[i][j]인, matrix[i][0]*matrix[div][1]*matrix[j][1]가 아래의 크누스 최적화 조건 3번(사각부등식)을 만족시키지 못하기 때문에 적용시킬 수 없다.
 					//       3) a <= b <= c <= d일 때,
-			        //          weight[a][c] + weight[b][d] <= weight[a][d] + weight[b][c];
+			       		//          weight[a][c] + weight[b][d] <= weight[a][d] + weight[b][c];
 					//       
 					//         
 					dp[i][j] = Math.min(dp[i][j], (matrix[i][0]*matrix[div][1]*matrix[j][1]) + (dp[i][div]+dp[div+1][j]));
