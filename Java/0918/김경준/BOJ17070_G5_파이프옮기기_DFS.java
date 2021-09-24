@@ -12,7 +12,7 @@ import java.util.*;
  * 
  */
 
-public class BOJ17070_G5_파이프옮기기1 {
+public class BOJ17070_G5_파이프옮기기_DFS {
 	static int N, map[][], answer = 0;
 	// 이전 방향 기준의 dx, dy  dir[0][i] - 가로 , dir[1][i] - 세로, dir[2][i] - 대각선
 	// 이전 dir이 가로인 경우에 다음 방향에서 세로는 없음 -> 해당 dx를 -1로 처리 -> dx[0][1] == -1
@@ -37,7 +37,6 @@ public class BOJ17070_G5_파이프옮기기1 {
 		System.out.println(answer);
 	}
 	
-	//dfs 풀이
 	static void dfs(int x, int y, int dir) {
 		if(x == N && y == N) {
 			answer++;
@@ -60,40 +59,6 @@ public class BOJ17070_G5_파이프옮기기1 {
 			
 			// 여기까지 넘어왔으면 다음 dfs 진행 가능
 			dfs(nx, ny, i);
-		}
-	}
-	
-	//bfs 풀이
-	static void bfs() {
-		Queue<Tuple> q = new ArrayDeque<Tuple>();
-		q.offer(new Tuple(1,2,0));
-		while(!q.isEmpty()) {
-			Tuple cur = q.poll();
-			int x = cur.x; int y = cur.y; int dir = cur.dir;
-			if(x == N && y == N) {
-				answer++;
-				continue;
-			}
-			for(int i = 0; i < 3; i++) {
-				if(dx[dir][i] == -1) continue;
-				
-				int nx = x + dx[dir][i];
-				int ny = y + dy[dir][i];
-				
-				if(map[nx][ny] == 1) continue;
-				if(i == 2) {
-					if(map[nx-1][ny] == 1 || map[nx][ny-1] == 1) continue;
-				}
-				q.offer(new Tuple(nx, ny, i));
-			}			
-		}
-	}
-	static class Tuple{
-		int x,y,dir;
-		public Tuple(int x, int y, int dir) {
-			this.x = x;
-			this.y = y;
-			this.dir = dir;
 		}
 	}
 }
