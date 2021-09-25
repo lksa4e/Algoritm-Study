@@ -32,23 +32,21 @@ public class BaekOJ17281_배문규 {
 		}
 		
 		do {
-			// 점수 초기화
-			score = 0;
-			// 현재 타자 초기화
-			p = 0;
+			score = 0; // 점수 초기화
+			p = 0; // 현재 타자 초기화
+			
 			// 이닝 별
 			for(int i = 0; i < N; i++) {
-				// 아웃카운트 초기화
-				int out = 0;
-				// 1,2,3루 초기화
-				Arrays.fill(base, false);
+				int out = 0; // 아웃카운트 초기화
+				Arrays.fill(base, false);// 1,2,3루 초기화
+				
 				// 아웃이 3개 될 떄 까지 반복
 				while(true) {
 					if(p < 3) play = player[i][order[p]]; // 1~3번 타자
 					else if(p == 3) play = player[i][0]; // 4번타자 고정
 					else if(p > 3) play = player[i][order[p-1]]; // 5~9번 타자
-					// 다음 타자
-					if(++p == 9) p = 0; // 9번타자 다음 1번타자
+					
+					if(++p == 9) p = 0; // 다음타자, 9번타자 다음 1번타자
 					
 					if(play == 0 && ++out == 3) break; // 아웃인데, 아웃 카운트가 3이 되면 다음 이닝 
 					else if(play != 0) hit(play); // 아니면 히트
