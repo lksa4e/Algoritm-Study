@@ -47,14 +47,12 @@ public class BaekOJ17281_배문규 {
 				
 				// 아웃이 3개 될 떄 까지 반복
 				while(true) {
-					if(p == 9) p = 0; // 9번타자 다음 1번타자
-
 					if(p < 3) play = player[i][order[p]]; // 1~3번 타자
 					else if(p == 3) play = player[i][0]; // 4번타자 고정
 					else if(p > 3) play = player[i][order[p-1]]; // 5~9번 타자
 					
 					// 다음 타자
-					p++;
+					if(++p == 9) p = 0; // 9번타자 다음 1번타자
 					
 					if(play == 0 && ++out == 3) break; // 아웃인데, 아웃 카운트가 3이 되면 다음 이닝 
 					else if(play != 0) hit(play); // 아니면 히트
