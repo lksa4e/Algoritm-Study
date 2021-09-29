@@ -137,7 +137,7 @@ correct answer: -1
 					if(nx<=-1 || nx >=N || ny<=-1 || ny>=M) break;
 					if(map[nx][ny] == startIsland) break; // 시작한 섬과 같다면 중지
 					
-					if(map[nx][ny] != 0 && map[nx][ny] != startIsland) { // 섬인데 시작한 섬이 아니라면
+					if(map[nx][ny] != 0) { // 다른 섬이면 다리놓기 가능
 						makeBridge = true;
 						break;
 					}
