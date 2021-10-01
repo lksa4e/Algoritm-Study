@@ -23,18 +23,18 @@ import java.util.*;
 class Node implements Comparable<Node>{
 	String str;
 	List<Node> children = new ArrayList<Node>();
-    boolean isLeaf; // 리프노드 체크 필드
+	boolean isLeaf; // 리프노드 체크 필드
 
-    Node(String str) {
-    	this.str = str;
-    	isLeaf = false;
-    }
+	Node(String str) {
+		this.str = str;
+		isLeaf = false;
+	}
     
-    // 사전순 정렬
-    @Override
-    public int compareTo(Node o) {
-    	return this.str.compareTo(o.str);
-    }
+	// 사전순 정렬
+	@Override
+	public int compareTo(Node o) {
+		return this.str.compareTo(o.str);
+	}
 }
 
 public class BaekOJ14725_배문규 {
@@ -45,13 +45,11 @@ public class BaekOJ14725_배문규 {
 	static int N, K, size;
 	static boolean check;
 	static String str;
-    static Node root, temp;
+	static Node root, temp;
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		root = new Node(null);
-		
 		N = Integer.parseInt(br.readLine());
-		
 		for(int i = 0; i < N; i++) {
 			st = new StringTokenizer(br.readLine());
 			K = Integer.parseInt(st.nextToken());
@@ -65,9 +63,9 @@ public class BaekOJ14725_배문규 {
 				if(size > 0) {
 					for(int n = 0; n < size; n++) {
 						if(temp.children.get(n).str.equals(str)) {
-				            temp = temp.children.get(n);
-				            check = true;
-				            break;
+							temp = temp.children.get(n);
+							check = true;
+							break;
 						}
 					}
 				}
@@ -75,8 +73,8 @@ public class BaekOJ14725_배문규 {
 				// 1. 사이즈가 0일 때
 				// 2. 자식노드에 str이 없을 때
 				if(!check){ 
-		            temp.children.add(new Node(str));
-		            temp = temp.children.get(size);
+					temp.children.add(new Node(str));
+					temp = temp.children.get(size);
 				}
 			}
 			temp.isLeaf = true; // 리프 노드 표시
