@@ -50,10 +50,10 @@ public class BaekOJ14499_배문규 {
 	
 	/*
 	 *  주사위(3X4) 굴리기
-	 *      남쪽 
+	 *        남쪽 
 	 *  서쪽  위쪽  동쪽
-	 *      북쪽
-	 *      밑쪽
+	 *        북쪽
+	 *        밑쪽
 	 */
 	public static void rollDice(int cmd) {
 		int temp;
