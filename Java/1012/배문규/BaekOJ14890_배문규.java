@@ -3,6 +3,21 @@ package BaekOJ.study.date1012;
 import java.io.*;
 import java.util.*;
 
+/*
+ * 행 탐색하고 회전을 해서 다시 열 탐색을 수행함
+ * up변수와  down변수를 이용해서 탐색을 함
+ * 1. 평지 -> 내리막 경사를 확보(down++)해야하는지 먼저 체크하고 내리막 경사를 확보해야 할 필요가 없다면, 오르막 경사 공간 확보(up++)
+ * 2. 높이가 1높은 경사 -> 이전까지 up변수로 평지가 X만큼 확보됐는지 확인-> up = 1
+ * 3. 높이가 1낮은 경사 -> 이전까지 down변수 값을 확인하고 경사를 세울 수 있으면, 
+ * down변수를 초기화 후 다음으로 넘어가면서 평지가 나올 때 마다 down변수를 ++ 하면서  X만큼 공간 확보 -> down = 1, up = 0
+ * 4. 위 조건을 만족하지 못하면 continue
+ * 
+ * 만약 범위 끝까지 도달했는데 down변수가 X가 아니라면 아직 내리막 경사를 확보하지 못했다는 의미로 continue
+ *
+ * 메모리 	시간
+ * 15156	148
+ */
+ 
 public class BaekOJ14890_배문규 {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static StringBuilder sb = new StringBuilder();
