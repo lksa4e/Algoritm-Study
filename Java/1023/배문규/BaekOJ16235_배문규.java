@@ -95,7 +95,7 @@ public class BaekOJ16235_배문규 {
 		System.out.println(tree.size());
 	}
 
-	private static void spring() {
+	public static void spring() {
 		Collections.sort(tree);
 		
 		int size = tree.size();
@@ -112,7 +112,7 @@ public class BaekOJ16235_배문규 {
 		}
 	}
 
-	private static void summer() {
+	public static void summer() {
 		int size = tree.size();
 		// 죽은 나무는 나이//2 만큼 양분이 됨
 		for(int i = 0; i < size; i++) {
@@ -122,7 +122,7 @@ public class BaekOJ16235_배문규 {
 		tree.removeIf(t -> !t.isAlive);
 	}
 
-	private static void autumn() {
+	public static void autumn() {
 		int size = tree.size();
 		for(int i = 0; i < size; i++) {
 			// 나무의 나이가 5의 배수이면 인접한 땅에 나이가 1인 나무가 생긴다.
@@ -140,7 +140,7 @@ public class BaekOJ16235_배문규 {
 		}
 	}
 
-	private static void winter() {
+	public static void winter() {
 		// S2D2가 땅을 돌아다니면서 땅에 양분을 추가한다.
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) map[i][j] += A[i][j];
