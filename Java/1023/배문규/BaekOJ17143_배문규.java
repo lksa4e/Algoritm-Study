@@ -126,7 +126,7 @@ public class BaekOJ17143_배문규 {
 		}
 	}
 	
-	private static void lawOfSea() {
+	public static void lawOfSea() {
 		// 맵 갱신을 위해 초기화
 		for(int i = 0; i < R+1; i++) Arrays.fill(map[i], 0);
 		
