@@ -29,7 +29,7 @@ import java.util.*;
  * 오답:69
  * 
  * 메모리 	시간
- * 211844	868
+ * 212000  856
  * 
  */
 
@@ -66,15 +66,14 @@ public class BaekOJ16235_배문규 {
 		K = Integer.parseInt(st.nextToken());
 		
 		map = new int[N][N];
+        	A = new int[N][N];
 		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) map[i][j] = 5;
-		}
-		
-		A = new int[N][N];
-		for (int i = 0; i < N; i++) {
-			st = new StringTokenizer(br.readLine());
-			// 입력 x,y가 i,j와는 서로 반대임
-			for (int j = 0; j < N; j++) A[j][i] = Integer.parseInt(st.nextToken());
+            		st = new StringTokenizer(br.readLine());
+			for (int j = 0; j < N; j++){
+                		map[i][j] = 5;
+				// 입력 x,y가 i,j와는 서로 반대임
+                		A[j][i] = Integer.parseInt(st.nextToken());
+            		}
 		}
 		
 		for (int idx = 0; idx < M; idx++) {
