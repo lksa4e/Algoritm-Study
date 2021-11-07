@@ -101,6 +101,8 @@ public class BaekOJ17779_배문규 {
 		
 		// 5번 선거구
 		sector[4] = total - (sector[0] + sector[1] + sector[2] + sector[3]);
+		
+		// 정렬하고 최대값 - 최소값하여 결과값 구함
 		Arrays.sort(sector);
 		result = Math.min(result, sector[4] - sector[0]);
 	}
