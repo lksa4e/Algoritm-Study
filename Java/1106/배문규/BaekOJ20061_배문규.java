@@ -18,8 +18,7 @@ import java.util.*;
  * t = 2: 크기가 1×2인 블록을 (x, y), (x, y+1)에 놓은 경우
  * t = 3: 크기가 2×1인 블록을 (x, y), (x+1, y)에 놓은 경우
  * 
- * 파란색과 초록색은 결국 메커니즘은 같기 때문에 코드중복을 줄이기 위해
- * 초록색을 기준으로 파란색을 초록색으로 조절해주었음
+ * 파란색과 초록색 둘다 결국 메커니즘은 동일하기 때문에 초록색을 기준으로 통일해주었음
  * 
  * 메모리 	시간
  * 20856	264
@@ -52,7 +51,7 @@ public class BaekOJ20061_배문규 {
 			clearOOB(blueMap);
 			clearOOB(greenMap);
 		}
-		System.out.println(result + "\n" + getBlock());
+		System.out.println(result + "\n" + getResult());
 	}
 
 	public static void move(int[][] map, int t, int y, int x, boolean isBlue) {
@@ -113,20 +112,20 @@ public class BaekOJ20061_배문규 {
 				for(int i = 0; i < 4; i++) {
 					if(map[j][i] == 1) cnt += 1;
 				}
-				// 있다면 없애고 댕기기
+				// 있다면 없애고 이동시킴
 				if(cnt == 4) {
 					result += 1;
 					flag = false;
-					// 비우고
+					// 꽉찬 행 비우기
 					for(int i = 0; i < 4; i++) map[j][i] = 0;
 					
-					// 댕기기
+					// 이동하기
 					for(int k = j-1; k >= 0; k--) {
 						for(int i = 0; i < 4; i++) {
 							map[k+1][i] = map[k][i];
 						}
 					}
-					// 다시 비우기
+					// 이동한 부분 비우기
 					for(int i = 0; i < 4; i++) map[0][i] = 0;
 					
 					break;
@@ -136,6 +135,7 @@ public class BaekOJ20061_배문규 {
 			if(flag) break;
 		}
 	}
+	
 	public static void clearOOB(int[][] map) {
 		int cnt = 0;
 		// 안튀어나왔는지, 1줄이 튀어나왔는지, 2줄이 튀어나왔는지 체크
@@ -147,7 +147,7 @@ public class BaekOJ20061_배문규 {
 				}
 			}
 		}
-		// 튀어나왔다면
+		// 튀어나왔다면 끝줄 제거하고 
 		if(cnt != 0) {
 			for(int k = 5; k > 1; k--) {
 				for(int i = 0; i < 4; i++) map[k][i] = map[k-cnt][i];
@@ -158,7 +158,7 @@ public class BaekOJ20061_배문규 {
 		}
 	}
 	
-	private static int getBlock() {
+	private static int getResult() {
 		int cnt = 0;
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 4; j++) {
