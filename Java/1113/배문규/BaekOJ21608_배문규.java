@@ -15,7 +15,7 @@ import java.util.*;
  * 직관적이긴하나 효율적이진 않은듯..
  * 
  * 메모리 	시간
- * 48056	648
+ * 47716    560
  */
 
 public class BaekOJ21608_배문규 {
@@ -67,7 +67,7 @@ public class BaekOJ21608_배문규 {
 			}
 			
 			// 조건에 따라 정렬하고 최적의 자리를 찾음
-			Arrays.sort(conditions, (a,b) -> a[0] != b[0] ? b[0]-a[0] : a[1] != b[1] ? b[1] - a[1] : a[2] != b[2] ? a[2]-b[2] : a[3]-b[3]);
+			Arrays.sort(conditions, (a,b) -> a[0] != b[0] ? b[0]-a[0] : a[1] != b[1] ? b[1] - a[1] : a[2]-b[2]);
 			for(int i = 0; i < N*N; i++) {
 				if(map[conditions[i][IDX]/N][conditions[i][IDX]%N] == 0) {
 					map[conditions[i][IDX]/N][conditions[i][IDX]%N] = order[idx];
