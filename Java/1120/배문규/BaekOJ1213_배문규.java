@@ -23,12 +23,9 @@ public class BaekOJ1213_배문규 {
 	
 	static int[] arr = new int[26];
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		// 입력 문자열을 문자배열로 만들고 정렬
-		char[] input = br.readLine().toCharArray();
-		Arrays.sort(input);
-		
+		String input = br.readLine();
 		// 각 알파벳이 몇 개 나왔는지 카운트
-		for(int i = 0; i < input.length; i++) arr[input[i]-'A']++;
+		for(int i = 0; i < input.length(); i++) arr[input.charAt(i)-'A']++;
 		
 		// 홀수개인 알파벳을 카운트하고, 어떤 알파벳이 홀수 개 나왔는지 기록함
 		int cnt = 0;
